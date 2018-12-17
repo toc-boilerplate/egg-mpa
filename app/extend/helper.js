@@ -1,0 +1,1 @@
+exports.uppercaseFirst = str => str[0].toUpperCase() + str.substring(1)
