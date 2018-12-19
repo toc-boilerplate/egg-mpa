@@ -1,5 +1,0 @@
-{% extends "components/layout.nj" %}
-
-{% block body %}
-  <div>this is resume body</div>
-{% endblock %}
