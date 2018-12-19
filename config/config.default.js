@@ -1,5 +1,4 @@
 'use strict'
-const EasyWebpack = require('easywebpack-html')
 
 module.exports = appInfo => {
   const config = (exports = {})
@@ -16,11 +15,6 @@ module.exports = appInfo => {
     mapping: {
       '.html': 'nunjucks',
     },
-  }
-
-  exports.webpack = {
-    port: 9000,
-    webpackConfigList: EasyWebpack.getWebpackConfig(),
   }
 
   config.alinode = {

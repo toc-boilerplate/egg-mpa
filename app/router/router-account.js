@@ -3,5 +3,7 @@ module.exports = app => {
 
   router.get('/account', controller.account.index)
 
-  router.get('/account/home', controller.account.home)
+  router.get('/home', controller.account.home)
+
+  router.get('/nunjucks', controller.account.nunjucks)
 }

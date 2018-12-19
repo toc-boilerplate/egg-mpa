@@ -1,23 +1,23 @@
 module.exports = {
   framework: 'html',
-  entry: 'app/web/pages/**/*.js',
-  devtool: 'source-map',
-  template: 'app/web/components/layout.html',
   buildPath: 'app/view',
-  // alias: {
-  //   asset: 'asset',
-  //   jquery: 'asset/js/jquery-3.2.1.min.js',
-  // },
-  // externals: {
-  //   jquery: 'window.$',
-  // },
+  publicPath: '/',
+  entry: 'app/src/**/*.js',
+  devtool: 'source-map',
+  alias: {
+    asset: 'asset',
+    jquery: 'asset/js/jquery-3.2.1.min.js',
+  },
+  externals: {
+    jquery: 'window.$',
+  },
   loaders: {
     scss: true,
-    nunjucks: {
-      options: {
-        searchPaths: ['app/web/components', 'app/web/pages'],
-      },
-    },
+    // nunjucks: {
+    //   options: {
+    //     searchPaths: ['app/widget'],
+    //   },
+    // },
   },
   plugins: {},
   done() {},
