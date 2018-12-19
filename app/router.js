@@ -6,4 +6,5 @@
 module.exports = app => {
   require('./router/router-account')(app)
   require('./router/router-resume')(app)
+  require('./router/router-position')(app)
 }

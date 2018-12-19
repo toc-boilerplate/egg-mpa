@@ -6,7 +6,8 @@
   "dependencies": {
     "egg": "^2.2.1",
     "egg-scripts": "^2.5.0",
-    "egg-view-nunjucks": "^2.2.0"
+    "egg-view-nunjucks": "^2.2.0",
+    "normalize.css": "^8.0.1"
   },
   "devDependencies": {
     "autod": "^3.0.1",
@@ -35,11 +36,9 @@
   "scripts": {
     "start": "egg-scripts start --daemon --title=egg-server-zhinanzhen_v2",
     "stop": "egg-scripts stop --title=egg-server-zhinanzhen_v2",
-    "egg:dev": "egg-bin dev",
-    "webpack:dev": "easy dev",
-    "build": "easy build",
-    "print": "easy print",
-    "dev": "npm-run-all -p webpack:dev egg:dev",
+    "dev": "egg-bin dev",
+    "build": "easy build --speed",
+    "print": "easy print > webpackDebugConfig.json",
     "debug": "egg-bin debug",
     "test": "npm run lint -- --fix && npm run test-local",
     "test-local": "egg-bin test",
@@ -47,7 +46,8 @@
     "lint": "eslint .",
     "ci": "npm run lint && npm run cov",
     "autod": "autod",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "postinstall": "npm link egg-webpack egg-view-memoryfs easywebpack-html"
   },
   "prettier": {
     "semi": false,
