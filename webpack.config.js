@@ -1,14 +1,17 @@
+const isProd = process.env.NODE_ENV === 'production'
+const fs = require('fs-extra')
 const path = require('path')
 
 module.exports = {
+  type: 'web',
   framework: 'html',
   buildPath: 'app/view',
-  publicPath: '//localhost:9000',
-  entry: 'app/src/**/*.js',
+  publicPath: isProd ? '/public/' : '//localhost:9000',
+  entry: 'src/pages/**/*.js',
   devtool: 'source-map',
   alias: {
-    asset: 'asset',
-    jquery: 'asset/js/jquery-3.2.1.min.js',
+    js: 'src/assets/js',
+    img: 'src/assets/img',
   },
   externals: {
     jquery: 'window.$',
@@ -22,19 +25,26 @@ module.exports = {
       $: 'jquery',
       _: 'lodash',
     },
-    // extract: {
-    //   chunkFilename: '../dist/css/[name].[chunkhash:8].css',
-    // },
+    copy: [
+      {
+        from: 'src/widget/',
+        to: 'widget',
+      },
+    ],
   },
-  done() {},
+  done() {
+    fs.removeSync(path.join(__dirname, 'app/public'))
+    fs.moveSync(
+      path.join(__dirname, 'app/view/css/'),
+      path.join(__dirname, 'app/public/css')
+    )
+    fs.moveSync(
+      path.join(__dirname, 'app/view/js/'),
+      path.join(__dirname, 'app/public/js')
+    )
+  },
   install: {
     check: false,
     npm: 'npm',
   },
-  // customize(webpackConfig) {
-  //   webpackConfig.output.filename = '../dist/js/[name].[chunkhash:8].js'
-  //   webpackConfig.output.chunkFilename =
-  //     '../dist/js/chunk/[name].[chunkhash:8].js'
-  //   return webpackConfig
-  // },
 }

@@ -11,3 +11,5 @@ run/
 *.sw*
 *.un~
 webpackDebugConfig.json
+app/view/
+app/public/

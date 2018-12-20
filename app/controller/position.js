@@ -2,12 +2,11 @@ const Controller = require('egg').Controller
 
 class PositionController extends Controller {
   async index() {
-    await this.ctx.render('position/index.html', {
-      title: 'Position index view',
-    })
+    const data = await this.service.position.index.list()
+    await this.ctx.render('position/index', data)
   }
   async detail() {
-    await this.ctx.render('position/detail.html', {
+    await this.ctx.render('position/detail', {
       title: 'Position edit name ',
     })
   }

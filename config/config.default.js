@@ -1,4 +1,4 @@
-'use strict'
+const path = require('path')
 
 module.exports = appInfo => {
   const config = (exports = {})
@@ -15,6 +15,10 @@ module.exports = appInfo => {
     mapping: {
       '.html': 'nunjucks',
     },
+    root: [
+      path.join(appInfo.baseDir, 'app/view'),
+      path.join(appInfo.baseDir, 'src/widget'),
+    ].join(','),
   }
 
   config.alinode = {

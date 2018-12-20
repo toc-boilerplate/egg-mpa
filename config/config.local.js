@@ -2,7 +2,7 @@ const path = require('path')
 const EasyWebpack = require('easywebpack-html')
 
 module.exports = appInfo => {
-  const config = (exports = {})
+  const config = {}
 
   config.development = {
     ignoreDirs: ['app/web', 'public'], // 指定过滤的目录（包括子目录）
@@ -14,7 +14,7 @@ module.exports = appInfo => {
     mapping: {
       '.html': 'memoryfs',
     },
-    root: [path.join(appInfo.baseDir, 'app/view')].join(','),
+    root: [path.join(appInfo.baseDir, 'src/widget')].join(','),
   }
 
   exports.webpack = {

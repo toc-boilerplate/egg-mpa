@@ -5,10 +5,10 @@ class AccountController extends Controller {
     await this.ctx.render('index', { title: 'account index view' })
   }
   async home() {
-    await this.ctx.render('home/home.html', { title: 'account home' })
+    await this.ctx.render('account/home.html', { title: 'account home' })
   }
   async editName() {
-    await this.ctx.render('home/edit-name.html', {
+    await this.ctx.render('account/edit-name.html', {
       title: 'account edit name ',
     })
   }
