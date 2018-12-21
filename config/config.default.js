@@ -21,6 +21,12 @@ module.exports = appInfo => {
     ].join(','),
   }
 
+  exports.cluster = {
+    listen: {
+      port: 7100,
+    },
+  }
+
   config.alinode = {
     appid: process.env.EGG_ALINODE_APPID || '',
     secret: process.env.EGG_ALINODE_SECRET || '',

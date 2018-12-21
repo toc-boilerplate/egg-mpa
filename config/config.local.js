@@ -21,6 +21,9 @@ module.exports = appInfo => {
     port: 9000,
     webpackConfigList: EasyWebpack.getWebpackConfig(),
   }
-
+  exports.assets = {
+    url: '//localhost:9000',
+    publicPath: '/public/',
+  }
   return config
 }

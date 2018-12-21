@@ -1,4 +1,3 @@
-const isProd = process.env.NODE_ENV === 'production'
 const fs = require('fs-extra')
 const path = require('path')
 
@@ -6,7 +5,7 @@ module.exports = {
   type: 'web',
   framework: 'html',
   buildPath: 'app/view',
-  publicPath: isProd ? '/public/' : '//localhost:9000',
+  publicPath: '/public/',
   entry: 'src/pages/**/*.js',
   devtool: 'source-map',
   alias: {
