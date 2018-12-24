@@ -32,5 +32,9 @@ module.exports = appInfo => {
     secret: process.env.EGG_ALINODE_SECRET || '',
   }
 
+  config.clusterClient = {
+    responseTimeout: 600000,
+  }
+
   return config
 }

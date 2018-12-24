@@ -2,4 +2,12 @@
   .list {
     color: #999;
   }
+  .bgtest {
+    width: 200px;
+    height: 200px;
+    background: url(~img/banner.jpg) no-repeat center;
+    background-position: center;
+    background-size: 100%;
+    color: #00c1de;
+  }
 }

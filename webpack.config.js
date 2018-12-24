@@ -41,6 +41,10 @@ module.exports = {
       path.join(__dirname, 'app/view/js/'),
       path.join(__dirname, 'app/public/js')
     )
+    fs.moveSync(
+      path.join(__dirname, 'app/view/img/'),
+      path.join(__dirname, 'app/public/img')
+    )
   },
   install: {
     check: false,
