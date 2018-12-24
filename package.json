@@ -21,6 +21,7 @@
     "egg-bin": "^4.3.5",
     "egg-ci": "^1.8.0",
     "egg-mock": "^3.14.0",
+    "egg-view-memoryfs": "^1.0.0",
     "egg-webpack": "^4.4.9",
     "eslint": "^4.11.0",
     "eslint-config-egg": "^6.0.0",
