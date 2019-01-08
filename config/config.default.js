@@ -33,7 +33,7 @@ module.exports = appInfo => {
   }
 
   config.clusterClient = {
-    responseTimeout: 600000,
+    responseTimeout: 600000000,
   }
 
   return config

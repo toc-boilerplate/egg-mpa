@@ -1,5 +1,6 @@
 const fs = require('fs-extra')
 const path = require('path')
+const AutoImportWebpackPlugin = require('auto-import-loader')
 
 module.exports = {
   type: 'web',
@@ -19,18 +20,44 @@ module.exports = {
   loaders: {
     scss: true,
   },
-  plugins: {
-    provide: {
-      $: 'jquery',
-      _: 'lodash',
-    },
-    copy: [
-      {
-        from: 'src/widget/',
-        to: 'widget',
+  // module: {
+  //   rules: [
+  //     { babel: false },
+  //     {
+  //       test: /\.jsx?$/,
+  //       exclude: [/node_modules/],
+  //       use: [
+  //         {
+  //           loader: 'babel-loader',
+  //         },
+  //         {
+  //           loader: 'auto-import-loader',
+  //           options: {
+  //             entry: 'src/pages',
+  //             asset: 'src/assets/js',
+  //           },
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
+  plugins: [
+    {
+      provide: {
+        $: 'jquery',
+        _: 'lodash',
       },
-    ],
-  },
+    },
+    {
+      copy: [
+        {
+          from: 'src/widget/',
+          to: 'widget',
+        },
+      ],
+    },
+    new AutoImportWebpackPlugin(),
+  ],
   done() {
     fs.removeSync(path.join(__dirname, 'app/public'))
     fs.moveSync(
@@ -45,9 +72,5 @@ module.exports = {
       path.join(__dirname, 'app/view/img/'),
       path.join(__dirname, 'app/public/img')
     )
-  },
-  install: {
-    check: false,
-    npm: 'npm',
   },
 }

@@ -6,4 +6,4 @@ const name = upperCase('index')
 
 $('#name').text(name)
 
-console.log('animation.js')
+console.log('position index / animation.js')

@@ -1,3 +1,4 @@
-import './index.scss'
-import 'js/position/animation'
-import 'js/position/filter'
+import { isArray } from 'lodash'
+
+console.log('babel-plugin-import===')
+console.log(isArray)
